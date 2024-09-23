@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            transition: background-color 0.3s ease;
+        }
+        header {
+            transition: background-color 0.3s ease;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #28a745; /* Green */
+        }
+        .container {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .form-control:focus {
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+            border-color: #28a745;
+        }
+        .btn-success {
+            transition: background-color 0.3s ease;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+        }
+    </style>
+
+    <title>Fake News Detection</title>
+</head>
+<body>
+    <header class="bg-white shadow p-3">
+        <div class="container mx-auto flex flex-wrap items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-green-500 rounded-full" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span class="ml-3 text-xl">Fake News Detection</span>
+            </a>
+            <nav class="ml-auto flex flex-wrap items-center text-base justify-center">
+                <a href="/" class="nav-link mr-5">Home</a>
+                <a class="nav-link mr-5">About Us</a>
+                <a href="/prediction" class="nav-link mr-5">Prediction</a>
+                <a class="nav-link mr-5">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="text-gray-600 body-font py-24">
+        <div class="container mx-auto">
+            <div class="flex flex-col text-center w-full mb-20">
+                <h2 class="text-xs text-green-500 tracking-widest font-medium title-font mb-1">Machine Learning Project</h2>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Fake News Detection</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base mb-4">Detect and identify fake news headlines with our AI-driven solution. Enter a headline below to get started!</p>
+                <p class="text-primary font-bold">{{prediction_text}}</p>
+            </div>
+            <div class="flex justify-center">
+                <form action="/prediction" method="POST" class="w-full max-w-lg">
+                    <div class="mb-3">
+                        <label for="news" class="form-label">Enter News Headlines</label>
+                        <input type="text" class="form-control" id="news" name="news" placeholder="Type your news headline here..." required>
+                        <div id="emailHelp" class="form-text">We'll never share your news with anyone else.</div>
+                    </div>
+                    <button type="submit" class="btn btn-success w-full">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>
